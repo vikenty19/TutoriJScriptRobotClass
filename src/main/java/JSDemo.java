@@ -30,6 +30,10 @@ public class JSDemo {
      /*  jse.executeScript("document.getElementById('ta1').value = 'Vikenty Plakhov'");
        jse.executeScript("document.getElementById('pah').style.color='blue'");
         jse.executeScript("document.getElementById('pah').style.background='red'");*/
+        //Move to the element
+        Thread.sleep(2000);
+        WebElement myButton = driver.findElement(By.id("myBtn"));
+        jse.executeScript("arguments[0].scrollIntoView(true);",myButton);
 
     }
     public static void javaScriptClick(WebDriver driver,WebElement element){
