@@ -32,9 +32,10 @@ public class JSDemo {
         jse.executeScript("document.getElementById('pah').style.background='red'");*/
         //Move to the element
         Thread.sleep(2000);
-        WebElement myButton = driver.findElement(By.id("myBtn"));
+        WebElement myButton = driver.findElement(By.id("HTML44"));
         jse.executeScript("arguments[0].scrollIntoView(true);",myButton);
-
+        System.out.println(myButton.getAttribute("outerHTML"));
+        driver.close();
     }
     public static void javaScriptClick(WebDriver driver,WebElement element){
         JavascriptExecutor jse = (JavascriptExecutor)driver;
