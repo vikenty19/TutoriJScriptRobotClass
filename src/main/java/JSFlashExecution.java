@@ -11,6 +11,13 @@ public class JSFlashExecution {
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("https://tutorialsninja.com/demo/");
+
+        WebElement searchBox = driver.findElement(By.name("search"));
+        JavascriptExecutor js = (JavascriptExecutor)driver;
+        js.executeScript("arguments[0].setAttribute('style','background: yellow; border: 2px solid red');",searchBox);
+        Thread.sleep(2000);
+        js.executeScript("arguments[0].style.background='blue';",searchBox);
+        Thread.sleep(2000);
        WebElement cartButton = driver.findElement(By.cssSelector("#cart>button"));
        // getting color index or color depends on the program
        String defaultColor = cartButton.getCssValue("background-color");
