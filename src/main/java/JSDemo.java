@@ -1,3 +1,4 @@
+import dev.failsafe.internal.util.Assert;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -11,30 +12,32 @@ public class JSDemo {
 
         JavascriptExecutor jse = (JavascriptExecutor)driver;
         //Alert
-    //   jse.executeScript("alert('Vik Plakhov')");
+   //    jse.executeScript("alert('Vik Plakhov')");
         //Prompt
-   //     jse.executeScript("prompt('what is your name?')");
+    //    jse.executeScript("prompt('what is your name?')");
+   //     Thread.sleep(2000);
         //confirmation
-    //    jse.executeScript("confirm('Do you want to proceed?')");
+ //       jse.executeScript("confirm('Do you want to proceed?')");
         // click
 
       // jse.executeScript("document.getElementById('alert1').click()");
         //another way
-       WebElement alert = driver.findElement(By.id("alert1"));
-       javaScriptClick(driver,alert);
+  //     WebElement alert = driver.findElement(By.id("alert1"));
+   //    javaScriptClick(driver,alert);
+   //    Thread.sleep(3000);
+        jse.executeScript("alert('Vik Plakhov')");
         Thread.sleep(3000);
-      //  jse.executeScript("alert('Vik Plakhov')");
-       // Thread.sleep(3000);
        driver.switchTo().alert().accept();// to close alert
 
-     /*  jse.executeScript("document.getElementById('ta1').value = 'Vikenty Plakhov'");
+      jse.executeScript("document.getElementById('ta1').value = 'Vikenty Plakhov'");
        jse.executeScript("document.getElementById('pah').style.color='blue'");
-        jse.executeScript("document.getElementById('pah').style.background='red'");*/
+        jse.executeScript("document.getElementById('pah').style.background='red'");
         //Move to the element
         Thread.sleep(2000);
         WebElement myButton = driver.findElement(By.id("HTML44"));
         jse.executeScript("arguments[0].scrollIntoView(true);",myButton);
-        System.out.println(myButton.getAttribute("outerHTML"));
+        System.out.println(myButton.getAttribute("innerHTML"));
+        System.out.println(myButton.getAttribute("innerHTML").contains("Disable Enable Button"));
         driver.close();
     }
     public static void javaScriptClick(WebDriver driver,WebElement element){
